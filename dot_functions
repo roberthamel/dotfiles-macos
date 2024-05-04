@@ -75,11 +75,8 @@ newbranch() {
 }
 
 cmpush() {
-	set +x
-	chezmoi apply
 	chezmoi cd
 	git add --all
 	git commit -m "update $(date +'%Y%m%d%H%M%S')"
 	git push
-	set -x
 }
