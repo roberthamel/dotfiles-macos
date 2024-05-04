@@ -35,6 +35,7 @@ plugins=(
   rsync
   tmux
   wd
+  zsh-interactive-cd
 )
 source $ZSH/oh-my-zsh.sh
 zstyle ':omz:update' mode auto
