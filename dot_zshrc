@@ -50,7 +50,7 @@ if [ "$(arch)" = "arm64" ]; then
 else
   eval "$(/usr/local/bin/brew shellenv)"
 fi
-eval "$(starship init zsh)"
+# eval "$(starship init zsh)"
 source /opt/homebrew/opt/zsh-fast-syntax-highlighting/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
