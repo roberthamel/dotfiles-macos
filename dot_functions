@@ -3,7 +3,7 @@ endColor='\e[0m'
 
 function addalias() {
 	if [[ $# -eq 0 ]] ; then
-		echo "arg1=alias, arg2=command";
+		echo "addalias [alias] [command]";
 		echo "Example: addalias d 'cd ~/Downloads'";
 	else
    	echo "alias $1='$2'" >> $HOME/.aliases && source $HOME/.zshrc;
