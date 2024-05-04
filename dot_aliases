@@ -16,3 +16,4 @@ alias flushcache="sudo killall -HUP mDNSResponder;sudo killall mDNSResponderHelp
 alias cm="chezmoi"
 alias cmd="chezmoi diff"
 alias cma="chezmoi apply -v"
+alias cmu="chezmoi update -v"
