@@ -63,3 +63,8 @@ nah() {
   git reset --hard
   git clean -df
 }
+
+newbranch() {
+  git checkout -b $1
+  git push -u origin $1
+}

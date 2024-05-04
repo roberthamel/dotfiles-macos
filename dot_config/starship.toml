@@ -1,0 +1,40 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Don't print a new line at the start of the prompt
+add_newline = true
+
+# Replace the "❯" symbol in the prompt with "➜"
+[character]      # The name of the module we are configuring is "character"
+success_symbol = "[➜](bold green) "
+error_symbol = "[✗](bold red) "
+
+# Disable the package module, hiding it from the prompt completely
+[package]
+disabled = true
+
+[cmd_duration]
+min_time = 2_000 # s_ms
+show_milliseconds = false
+format = "took [$duration]($style)"
+style = "bold yellow"
+disabled = false
+
+[directory]
+truncation_length = 40
+
+[git_branch]
+symbol = "🌱 "
+truncation_length = 40
+
+[git_status]
+disabled = true
+
+[python]
+disabled = false
+
+[container]
+symbol = "🐳 "
+style = "bold blue"
+disabled = false
+format = '[$symbol]($style) '
