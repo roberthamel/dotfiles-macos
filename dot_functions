@@ -68,3 +68,9 @@ newbranch() {
   git checkout -b $1
   git push -u origin $1
 }
+
+cmpush() {
+	chezmoi cd
+	git add --all
+	git commit -m "update $(date +'%Y%m%d%H%M%S')"
+}
