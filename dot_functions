@@ -39,6 +39,11 @@ function gac() {
 	fi;
 }
 
+function gact() {
+	git add --all
+	git commit -m "update $(date +'%Y%m%d%H%M%S')"
+}
+
 function mkd() {
 	mkdir -p "$@" && cd "$_";
 }
@@ -70,9 +75,11 @@ newbranch() {
 }
 
 cmpush() {
+	set +x
+	chezmoi apply
 	chezmoi cd
 	git add --all
 	git commit -m "update $(date +'%Y%m%d%H%M%S')"
 	git push
-	chezmoi apply -v --force
+	set -x
 }
