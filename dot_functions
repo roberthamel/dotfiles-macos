@@ -1,0 +1,65 @@
+yellow='\e[0;33m'
+endColor='\e[0m'
+
+function addalias() {
+	if [[ $# -eq 0 ]] ; then
+		echo "arg1=alias, arg2=command";
+		echo "Example: addalias d 'cd ~/Downloads'";
+	else
+   	echo "alias $1='$2'" >> $HOME/.aliases && source $HOME/.zshrc;
+	fi;
+}
+
+function camerausedby() {
+	echo "Checking to see who is using the iSight camera… 📷"
+	usedby=$(lsof | grep -w "AppleCamera\|USBVDC\|iSight" | awk '{printf $2"\n"}' | xargs ps)
+	echo -e "Recent camera uses:\n$usedby"
+}
+
+function pull() {
+	git stash --include-untracked;
+	git pull;
+	git stash apply stash@{0};
+}
+
+function bandcamp() {
+	if [[ $# -eq 0 ]]; then
+		echo "bandcamp [url]";
+	else
+		bandcamp-dl --full-album --no-slugify --embed-art $1;
+	fi;
+}
+
+function gac() {
+	if [[ $# -eq 0 ]]; then
+		echo "gac [commit_message]";
+	else
+		git add --all;
+		git commit -m $1;
+	fi;
+}
+
+function mkd() {
+	mkdir -p "$@" && cd "$_";
+}
+
+function youtube() {
+	if [ $# -eq 0 ]; then
+		echo "youtube [url]";
+	else
+		youtube-dl -x --audio-format mp3 --audio-quality 320K --prefer-ffmpeg --embed-thumbnail --add-metadata $1;
+	fi;
+}
+
+function update() {
+	echo "${yellow}Updating Homebrew...${endColor}"
+	brew update
+	echo "${yellow}Upgrading installed brews...${endColor}"
+	brew upgrade
+	echo "${yellow}Update complete!${endColor}"
+}
+
+nah() {
+  git reset --hard
+  git clean -df
+}

@@ -1,0 +1,15 @@
+alias wkgp="watch kubectl get po"
+alias wkgps="watch kubectl get po,svc"
+alias wkga="watch kubectl get all"
+alias wkgpaa="watch kubectl get po --all-namespaces"
+alias wkgaa="watch kubectl get all --all-namespaces"
+alias npmlist="npm -g list --depth=0"
+alias dsstore="find . -name '*.DS_Store' -type f -ls -delete"
+alias hidefiles='defaults write com.apple.finder AppleShowAllFiles NO && killall Finder'
+alias showfiles='defaults write com.apple.finder AppleShowAllFiles YES && killall Finder'
+alias chmox="chmod -x"
+alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; rm -rfv ~/.Trashes/*; sudo rm -v /private/var/vm/sleepimage;"
+alias reloaddns="dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
+alias szsh="source ~/.zshrc"
+alias rc="code ~/.zshrc"
+alias flushcache="sudo killall -HUP mDNSResponder;sudo killall mDNSResponderHelper;sudo dscacheutil -flushcache"
