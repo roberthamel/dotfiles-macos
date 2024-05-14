@@ -1,17 +1,21 @@
 yellow='\e[0;33m'
 endColor='\e[0m'
 
+function info () {
+	echo "${yellow}$1${endColor}"
+}
+
 function addalias() {
 	if [[ $# -eq 0 ]] ; then
-		echo "addalias [alias] [command]";
-		echo "Example: addalias d 'cd ~/Downloads'";
+		info "addalias [alias] [command]";
+		info "Example: addalias d 'cd ~/Downloads'";
 	else
-   	echo "alias $1='$2'" >> $HOME/.aliases && source $HOME/.zshrc;
+   	info "alias $1='$2'" >> $HOME/.aliases && source $HOME/.zshrc;
 	fi;
 }
 
 function camerausedby() {
-	echo "Checking to see who is using the iSight camera… 📷"
+	info "Checking to see who is using the iSight camera… 📷"
 	usedby=$(lsof | grep -w "AppleCamera\|USBVDC\|iSight" | awk '{printf $2"\n"}' | xargs ps)
 	echo -e "Recent camera uses:\n$usedby"
 }
@@ -24,7 +28,7 @@ function pull() {
 
 function bandcamp() {
 	if [[ $# -eq 0 ]]; then
-		echo "bandcamp [url]";
+		info "bandcamp [url]";
 	else
 		bandcamp-dl --full-album --no-slugify --embed-art $1;
 	fi;
@@ -32,7 +36,7 @@ function bandcamp() {
 
 function gac() {
 	if [[ $# -eq 0 ]]; then
-		echo "gac [commit_message]";
+		info "gac [commit_message]";
 	else
 		git add --all;
 		git commit -m $1;
@@ -50,18 +54,18 @@ function mkd() {
 
 function youtube() {
 	if [ $# -eq 0 ]; then
-		echo "youtube [url]";
+		info "youtube [url]";
 	else
 		youtube-dl -x --audio-format mp3 --audio-quality 320K --prefer-ffmpeg --embed-thumbnail --add-metadata $1;
 	fi;
 }
 
 function update() {
-	echo "${yellow}Updating Homebrew...${endColor}"
+	info "Updating Homebrew..."
 	brew update
-	echo "${yellow}Upgrading installed brews...${endColor}"
+	info "Upgrading installed brews..."
 	brew upgrade
-	echo "${yellow}Update complete!${endColor}"
+	info "Update complete!"
 }
 
 nah() {
