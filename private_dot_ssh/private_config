@@ -1,0 +1,38 @@
+
+Host github.com
+	User git
+	HostName ssh.github.com
+	Port 443
+
+Host mini
+	HostName mini
+
+Host k8s
+	HostName k8s
+
+Host emby
+	HostName emby
+
+Host rhms
+	HostName rhms
+
+Host gtr
+	User root
+	HostName gtr
+
+Host pbs
+	User root
+	HostName pbs
+
+Host dev
+	HostName dev
+
+Host auth
+	HostName 192.168.1.154
+
+Host *
+	User rh
+	IdentityFile ~/.ssh/id_rsa
+	AddKeysToAgent yes
+	ForwardAgent yes
+	#SCETerminal com.googlecode.iterm2
