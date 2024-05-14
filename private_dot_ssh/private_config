@@ -28,7 +28,7 @@ Host dev
 	HostName dev
 
 Host auth
-	HostName 192.168.1.154
+	HostName auth
 
 Host *
 	User rh
