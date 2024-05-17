@@ -30,6 +30,9 @@ Host dev
 Host auth
 	HostName auth
 
+Host semaphore
+	HostName semaphore
+
 Host *
 	User rh
 	IdentityFile ~/.ssh/id_rsa
