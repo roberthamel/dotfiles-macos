@@ -6,57 +6,61 @@ file_marker="$HOME/.local/macos-configured"
 did_install_dotfiles=false
 
 dotfiles() {
+	echo "🍔 dotfiles"
   if [ ! -d "$HOME/.local/share/chezmoi" ]; then
-  	echo "::: dotfiles"
     sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply $dotfiles_repo
     did_install_dotfiles=true
     echo "✅ Configured dotfiles"
   else
-    echo "Skipping dotfiles configuration"
+    echo "ℹ️ Skipping dotfiles configuration"
   fi
 }
 
 brewsetup() {
-  if ! command -v brew &> /dev/null
-	then
-		echo "::: Homebrew"
+  if ! command -v brew &> /dev/null; then
+		echo "🍔 Homebrew"
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" > /dev/null
     brew install mas
     echo "✅ Installed Homebrew"
   else
-    echo "::: Skipping Homebrew installation"
+    echo "ℹ️ Skipping Homebrew installation"
   fi
 }
 
 devbox() {
   if ! command -v devbox &> /dev/null; then
-		echo "::: devbox"
+		echo "🍔 devbox"
     curl -fsSL https://get.jetify.com/devbox | bash
     echo "✅ Installed devbox"
   else
-    echo "Skipping devbox installation"
+    echo "ℹ️ Skipping devbox installation"
   fi
 }
 
 omz() {
   if [ ! -d "$HOME/.oh-my-zsh" ]; then
-	echo "::: oh-my-zsh"
+		echo "🍔 oh-my-zsh"
     export SHELL=/opt/homebrew/bin/zsh
     sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" > /dev/null
     echo "✅ Installed oh-my-zsh"
   else
-    echo "Skipping oh-my-zsh installation"
+    echo "ℹ️ Skipping oh-my-zsh installation"
   fi
 }
 
 brewinstall() {
-  echo "::: Install from Brewfile"
-	brew bundle install --global --no-lock --force
+	if [ ! -e "$HOME/.Brewfile.lock.json" ]; then
+		echo "🍔 Install from Brewfile"
+		brew bundle install --global --force > /dev/null
+		echo "✅ Installed from Brewfile"
+	else
+		echo "ℹ️ Skipping Brewfile installation"
+	fi
 }
 
 system() {
-  echo "::: MacOS"
-  if [ ! -d "$file_marker" ]; then
+  if [ ! -e "$file_marker" ]; then
+  	echo "🍔 MacOS"
     # Disable the sound effects on boot
     sudo nvram SystemAudioVolume=" "
     # Increase window resize speed for Cocoa applications
@@ -88,6 +92,8 @@ system() {
 
     # Save a file to mark that this process has been completed successfully at least once
     touch $file_marker
+	else
+		echo "ℹ️ Skipping MacOS configuration"
   fi
 }
 
