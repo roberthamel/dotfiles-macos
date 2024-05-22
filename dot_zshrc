@@ -1,3 +1,4 @@
+export SHELL="/opt/homebrew/bin/zsh"
 source $HOME/.aliases
 source $HOME/.functions
 zstyle :omz:plugins:iterm2 shell-integration yes
