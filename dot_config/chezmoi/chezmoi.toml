@@ -1,0 +1,4 @@
+mode = "symlink"
+[git]
+  autoCommit = true
+  autoPush = true
