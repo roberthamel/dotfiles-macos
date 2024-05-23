@@ -5,10 +5,14 @@ dofiles_repo=https://github.com/roberthamel/dotfiles-macos.git
 file_marker="$HOME/.local/macos-configured"
 did_install_dotfiles=false
 
+_run() {
+  eval "$@" &> /dev/null
+}
+
 dotfiles() {
 	echo "🍔 dotfiles"
   if [ ! -d "$HOME/.local/share/chezmoi" ]; then
-    sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply $dotfiles_repo
+    _run sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply $dotfiles_repo
     did_install_dotfiles=true
     echo "✅ Configured dotfiles"
   else
@@ -19,7 +23,7 @@ dotfiles() {
 brewsetup() {
   if ! command -v brew &> /dev/null; then
 		echo "🍔 Homebrew"
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" > /dev/null
+    _run /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     # do i need this?
     # brew install mas
     echo "✅ Installed Homebrew"
@@ -31,7 +35,7 @@ brewsetup() {
 devbox() {
   if ! command -v devbox &> /dev/null; then
 		echo "🍔 devbox"
-    curl -fsSL https://get.jetify.com/devbox | bash
+    _run curl -fsSL https://get.jetify.com/devbox | bash
     echo "✅ Installed devbox"
   else
     echo "ℹ️ Skipping devbox installation"
