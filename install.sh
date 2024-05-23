@@ -20,7 +20,8 @@ brewsetup() {
   if ! command -v brew &> /dev/null; then
 		echo "🍔 Homebrew"
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" > /dev/null
-    brew install mas
+    # do i need this?
+    # brew install mas
     echo "✅ Installed Homebrew"
   else
     echo "ℹ️ Skipping Homebrew installation"
@@ -99,10 +100,10 @@ system() {
 
 main() {
 	brewsetup
+	brewinstall
 	devbox
 	omz
 	dotfiles
-	brewinstall
 	system
 }
 start_time=$(date +%s)
