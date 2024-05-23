@@ -113,6 +113,7 @@ cask "the-unarchiver"
 cask "unity-hub"
 cask "visual-studio-code"
 cask "xpipe"
+cask "yed"
 mas "1Password for Safari", id: 1569813296
 mas "BetterSnapTool", id: 417375580
 mas "Codye", id: 1516894961
@@ -129,7 +130,9 @@ mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "PopClip", id: 445189367
 mas "SnippetsLab", id: 1006087419
+mas "Solitaire Epic", id: 972224785
 mas "SSH Config Editor", id: 1109319285
+mas "Steam Link", id: 1246969117
 mas "Tailscale", id: 1475387142
 mas "Xcode", id: 497799835
 vscode "1password.op-vscode"
