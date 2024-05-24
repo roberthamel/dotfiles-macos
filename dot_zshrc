@@ -5,48 +5,6 @@ source $HOME/.functions
 zstyle :omz:plugins:iterm2 shell-integration yes
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="robbyrussell"
-CASE_SENSITIVE="true"
-HYPHEN_INSENSITIVE="true"
-plugins=(
-  1password
-  aliases
-  ansible
-  argocd
-  bun
-  docker
-  direnv
-  fzf
-  gh
-  git
-  git-commit
-  gitignore
-  git-lfs
-  golang
-  helm
-  iterm2
-  kubectl
-  kubectx
-  nmap
-  pip
-  pre-commit
-  python
-  ripgrep
-  rust
-  rsync
-  tmux
-  wd
-  zsh-interactive-cd
-)
+plugins=(1password aliases docker direnv fzf gh git git-commit gitignore git-lfs helm iterm2 kubectl kubectx nmap pre-commit ripgrep rsync tmux wd)
 source $ZSH/oh-my-zsh.sh
-zstyle ':omz:update' mode auto
-zstyle ':omz:update' frequency 13
 export PROMPT='%{$fg_bold[green]%}%p%(?:%{%}➜ :%{%}➜ ) %(!.%{%F{yellow}%}.)$USER@%{$fg[white]%}%M %{$fg[cyan]%}%c%{$reset_color%} $(git_prompt_info)'
-export PATH=$PATH:$HOME/go/bin
-export PATH=$PATH:$HOME/.cargo/bin
-export PATH=$PATH:$HOME/.deno/bin
-export PATH=$PATH:$HOME/.local/bin
-if [ "$(arch)" = "arm64" ]; then
-  eval "$(/opt/homebrew/bin/brew shellenv)"
-else
-  eval "$(/usr/local/bin/brew shellenv)"
-fi
