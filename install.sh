@@ -24,8 +24,7 @@ brewsetup() {
   if ! command -v brew &> /dev/null; then
 		echo "🍔 Homebrew"
     _run /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    # do i need this?
-    # brew install mas
+    brew install mas
     echo "✅ Installed Homebrew"
   else
     echo "ℹ️ Skipping Homebrew installation"
