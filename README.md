@@ -15,7 +15,7 @@ This repository contains my personal dotfiles for macOS. It uses [chezmoi](https
 To install the dotfiles and set up the development environment without cloning the repository, you can download and run the `install.sh` script directly using `curl`:
 
 ```bash
-curl -o- https://raw.githubusercontent.com/roberthamel/dotfiles-macos/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/roberthamel/dotfiles-macos/main/install.sh | bash
 ```
 
 The script is idempotent, meaning it can be run multiple times without causing problems.
