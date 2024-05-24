@@ -102,11 +102,11 @@ system() {
 }
 
 main() {
+  dotfiles
   brewsetup
   brewinstall
   devbox
   omz
-  dotfiles
   system
 }
 start_time=$(date +%s)
