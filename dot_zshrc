@@ -1,4 +1,5 @@
 export SHELL="/opt/homebrew/bin/zsh"
+export EDITOR="code"
 source $HOME/.aliases
 source $HOME/.functions
 zstyle :omz:plugins:iterm2 shell-integration yes
