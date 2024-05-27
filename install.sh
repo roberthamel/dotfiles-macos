@@ -12,7 +12,7 @@ _run() {
 dotfiles() {
   echo "🍔 dotfiles"
   if [ ! -d "$HOME/.local/share/chezmoi" ]; then
-    _run sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply $dotfiles_repo
+    sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply $dotfiles_repo
     did_install_dotfiles=true
     echo "✅ Configured dotfiles"
   else
