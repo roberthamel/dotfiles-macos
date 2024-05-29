@@ -35,7 +35,7 @@ Host semaphore
 
 Host *
 	User rh
-	IdentityFile ~/.ssh/id_rsa
+	IdentityFile ~/.ssh/id_ed25519
 	AddKeysToAgent yes
 	ForwardAgent yes
 	#SCETerminal com.googlecode.iterm2
