@@ -5,10 +5,6 @@ dofiles_repo=https://github.com/roberthamel/dotfiles-macos.git
 file_marker="$HOME/.local/macos-configured"
 did_install_dotfiles=false
 
-_run() {
-  eval "$@" &>/dev/null
-}
-
 dotfiles() {
   echo "🍔 dotfiles"
   if [ ! -d "$HOME/.local/share/chezmoi" ]; then
@@ -23,7 +19,7 @@ dotfiles() {
 brewsetup() {
   if ! command -v brew &>/dev/null; then
     echo "🍔 Homebrew"
-    _run /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     brew install mas
     echo "✅ Installed Homebrew"
   else
@@ -34,7 +30,7 @@ brewsetup() {
 devbox() {
   if ! command -v devbox &>/dev/null; then
     echo "🍔 devbox"
-    _run curl -fsSL https://get.jetify.com/devbox | bash
+    curl -fsSL https://get.jetify.com/devbox | bash
     echo "✅ Installed devbox"
   else
     echo "ℹ️ Skipping devbox installation"
@@ -45,7 +41,7 @@ omz() {
   if [ ! -d "$HOME/.oh-my-zsh" ]; then
     echo "🍔 oh-my-zsh"
     export SHELL=/opt/homebrew/bin/zsh
-    sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" >/dev/null
+    sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
     echo "✅ Installed oh-my-zsh"
   else
     echo "ℹ️ Skipping oh-my-zsh installation"
@@ -55,7 +51,7 @@ omz() {
 brewinstall() {
   if [ ! -e "$HOME/.Brewfile.lock.json" ]; then
     echo "🍔 Install from Brewfile"
-    brew bundle install --global --force >/dev/null
+    brew bundle install --global --force
     echo "✅ Installed from Brewfile"
   else
     echo "ℹ️ Skipping Brewfile installation"
