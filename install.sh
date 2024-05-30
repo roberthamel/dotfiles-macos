@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -Eeuo pipefail
 
-dofiles_repo=https://github.com/roberthamel/dotfiles-macos.git
+dotfiles_repo=https://github.com/roberthamel/dotfiles-macos.git
 file_marker="$HOME/.local/macos-configured"
 did_install_dotfiles=false
 
