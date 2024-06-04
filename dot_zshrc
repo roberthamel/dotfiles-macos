@@ -1,5 +1,5 @@
 export SHELL="/opt/homebrew/bin/zsh"
-export EDITOR="code"
+export EDITOR="vim"
 source $HOME/.aliases
 source $HOME/.functions
 zstyle :omz:plugins:iterm2 shell-integration yes
