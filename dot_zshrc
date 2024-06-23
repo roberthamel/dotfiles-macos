@@ -8,9 +8,9 @@ ZSH_THEME="robbyrussell"
 plugins=(1password aliases docker direnv fzf gh git git-commit gitignore git-lfs helm iterm2 kubectl kubectx nmap pre-commit ripgrep rsync tmux wd)
 source $ZSH/oh-my-zsh.sh
 export PROMPT='%{$fg_bold[green]%}%p%(?:%{%}➜ :%{%}➜ ) %(!.%{%F{yellow}%}.)$USER@%{$fg[white]%}%M %{$fg[cyan]%}%c%{$reset_color%} $(git_prompt_info)'
-if command -v devbox &> /dev/null; then
-  eval "$(devbox global shellenv)"
-fi
+#if command -v devbox &> /dev/null; then
+#  eval "$(devbox global shellenv)"
+#fi
 if command -v go &> /dev/null; then
   export GOROOT="$(dirname $(dirname $(which go)))"
 fi
