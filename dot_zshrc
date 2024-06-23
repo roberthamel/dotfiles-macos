@@ -15,4 +15,3 @@ if command -v go &> /dev/null; then
   export GOROOT="$(dirname $(dirname $(which go)))"
 fi
 source <(fzf --zsh)
-export PATH="$HOME/go/bin:$PATH"
